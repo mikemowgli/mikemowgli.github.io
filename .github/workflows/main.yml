@@ -1,0 +1,21 @@
+
+name: build
+
+on:
+  push:
+    branches:
+    - www
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 'Building...'
+      uses: reuixiy/hugo-deploy@v1
+      env:
+        DEPLOY_REPO: mikemowgli/mikemowgli.github.io
+        DEPLOY_BRANCH: master
+        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+        TZ: Europe/Brussels
